@@ -28,7 +28,7 @@ var magic = [
     text: `../`,
     color: "#DF89DD",
     name: "Path Traversal",
-    description: "Tries to access prevous directory",
+    description: "Tries to access previous directory",
     index: 2,
   },
   {
@@ -47,24 +47,10 @@ var magic = [
   },
 ];
 
-const Info = ({ data, variant = "h1", ...afterProps }) => (
-  <AnimatePresence>
-    <motion.span
-      key={data}
-      initial={{ x: -200, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ x: 200, opacity: 0 }}
-      style={{ position: "absolute", ...afterProps }}
-    >
-      <Typography variant={variant}>{data}</Typography>
-    </motion.span>
-  </AnimatePresence>
-);
-
 function App() {
   const [hover, setHover] = React.useState(-1);
   const [title, setTitle] = React.useState("magic string");
-  const [subtitle, setSubTitle] = React.useState("for pentesters");
+  const [subtitle, setSubTitle] = React.useState("click to copy");
   const [color, setColor] = React.useState("#FFFFFF");
 
   const handleHoverFor = (s) => {
@@ -80,6 +66,17 @@ function App() {
 
   const copy = () => {
     navigator.clipboard.writeText(`'";<lol/>../--#\`ls\``);
+    const d = {
+      text: `'";<lol/>../--#\`ls\``,
+      color: "#FFFFFF",
+      name: "magic string",
+      description: "click to copy",
+      index: 5,
+    };
+    setHover(d.index);
+    setTitle(d.name);
+    setSubTitle(d.description);
+    setColor(d.color);
   };
 
   return (
@@ -117,19 +114,18 @@ function App() {
                         <motion.span
                           key={title}
                           initial={{ x: -200, opacity: 0 }}
-                          animate={{ x: 0, opacity: 0.3 }}
+                          animate={{ x: 0, opacity: 0.9 }}
                           exit={{ x: 200, opacity: 0 }}
-                          style={{ position: "absolute", color: color }}
+                          style={{
+                            position: "absolute",
+                            display: "flex",
+                            alignItems: "flex-start",
+                            flexDirection: "column",
+                          }}
                         >
-                          <Typography variant="h1">{title}</Typography>
-                        </motion.span>
-                        <motion.span
-                          key={subtitle}
-                          initial={{ x: -200, opacity: 0 }}
-                          animate={{ x: 0, opacity: 1 }}
-                          exit={{ x: 200, opacity: 0 }}
-                          style={{ position: "absolute" }}
-                        >
+                          <Typography variant="h1" style={{ color: color }}>
+                            {title}
+                          </Typography>
                           <Typography variant="h2">{subtitle}</Typography>
                         </motion.span>
                       </AnimatePresence>
