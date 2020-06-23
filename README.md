@@ -1,3 +1,8 @@
+# Magic string
+Magic string used by pentesters to fuzz out common vulnerabilities, now in an easy to access website to copy the string, along with an explanation of each part of the magic string. I might not be correct on the explanations, so please reach out if you think I can improve the site.
+
+## check it out at [magic.justinor.dev](https://magic.justinor.dev)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
