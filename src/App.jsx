@@ -70,7 +70,7 @@ function App() {
       text: `'";<lol/>../--#\`ls\``,
       color: "#FFFFFF",
       name: "magic string",
-      description: "click to copy",
+      description: "copied to clipboard📋!",
       index: 5,
     };
     setHover(d.index);
