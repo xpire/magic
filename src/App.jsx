@@ -1,13 +1,14 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { motion, AnimatePresence } from "framer-motion";
 import Typography from "@material-ui/core/Typography";
+import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import Link from "@material-ui/core/Link";
 
 import ParallaxLayer from "./components/parallax/ParallaxLayer";
 import ParallaxContainer from "./components/parallax/ParallaxContainer";
-import Magic from "./components/magic/Magic";
 
 var magic = [
   {
@@ -87,6 +88,26 @@ function App() {
             {
               layer: (
                 <div>
+                  {/* <AppBar color="transparent">
+                    <Grid
+                      container
+                      direction="row"
+                      justify="space-between"
+                      alignItems="center"
+                    >
+                      <Grid xs={3}>
+                        <Typography variant="h3" style={{ color: "white" }}>
+                          <Link color="inherit">My Website</Link>
+                        </Typography>
+                      </Grid>
+                      <Grid xs={6}></Grid>
+                      <Grid xs={3}>
+                        <Typography variant="h3" style={{ color: "white" }}>
+                          <Link color="inherit">Source</Link>
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </AppBar> */}
                   <motion.div initial={{ scale: 1 }} whileTap={{ scale: 0.9 }}>
                     <Typography
                       variant="h1"
@@ -102,6 +123,11 @@ function App() {
                           whileHover={{ scale: 1.2, color: snippet.color }}
                           onMouseEnter={handleHoverFor(snippet)}
                           onClick={copy}
+                          style={{
+                            fontSize:
+                              // "144px",
+                              "calc(36px + (144 - 36) * ((100vw - 360px) / (1600 - 360)))",
+                          }}
                         >
                           <code key={index}>{snippet.text}</code>
                         </motion.span>
@@ -121,12 +147,13 @@ function App() {
                             display: "flex",
                             alignItems: "flex-start",
                             flexDirection: "column",
+                            fontSize: "10px",
                           }}
                         >
-                          <Typography variant="h1" style={{ color: color }}>
+                          <Typography variant="h2" style={{ color: color }}>
                             {title}
                           </Typography>
-                          <Typography variant="h2">{subtitle}</Typography>
+                          <Typography variant="h3">{subtitle}</Typography>
                         </motion.span>
                       </AnimatePresence>
                     </Typography>
