@@ -1,16 +1,9 @@
 .layer {
   overflow: hidden;
-  width: 120vw;
-  height: 120vh;
   display: flex;
+  width: 100vw;
+  height: 100vh;
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
   flex-direction: row;
-}
-
-@media only screen and (max-width: 600px) {
-  .layer {
-    width: 100vw;
-    height: 100vh;
-  }
 }

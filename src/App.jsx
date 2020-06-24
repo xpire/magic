@@ -88,26 +88,57 @@ function App() {
             {
               layer: (
                 <div>
-                  {/* <AppBar color="transparent">
+                  <div
+                    className="appbar"
+                    style={{
+                      position: "absolute",
+                      top: "0px",
+                      left: "0px",
+                      right: "0px",
+                      padding: "10px",
+                    }}
+                  >
                     <Grid
                       container
                       direction="row"
                       justify="space-between"
-                      alignItems="center"
+                      alignItems="flex-start"
                     >
-                      <Grid xs={3}>
-                        <Typography variant="h3" style={{ color: "white" }}>
-                          <Link color="inherit">My Website</Link>
+                      <Grid item xs={6}>
+                        <Typography
+                          variant="overline"
+                          style={{ color: "white" }}
+                          align="center"
+                        >
+                          <Link
+                            href="https://justinor.dev"
+                            target="__blank"
+                            rel="noopener"
+                            color="inherit"
+                          >
+                            My Website
+                          </Link>
                         </Typography>
                       </Grid>
-                      <Grid xs={6}></Grid>
-                      <Grid xs={3}>
-                        <Typography variant="h3" style={{ color: "white" }}>
-                          <Link color="inherit">Source</Link>
+                      <Grid item xs={6}>
+                        <Typography
+                          variant="overline"
+                          style={{ color: "white" }}
+                          align="center"
+                        >
+                          <Link
+                            href="https://github.com/xpire/magic"
+                            target="__blank"
+                            rel="noopener"
+                            color="inherit"
+                          >
+                            Source
+                          </Link>
                         </Typography>
                       </Grid>
                     </Grid>
-                  </AppBar> */}
+                  </div>
+
                   <motion.div initial={{ scale: 1 }} whileTap={{ scale: 0.9 }}>
                     <Typography
                       variant="h1"
@@ -126,7 +157,7 @@ function App() {
                           style={{
                             fontSize:
                               // "144px",
-                              "calc(36px + (144 - 36) * ((100vw - 360px) / (1600 - 360)))",
+                              "calc(24px + (128 - 24) * ((100vw - 300px) / (1600 - 300)))",
                           }}
                         >
                           <code key={index}>{snippet.text}</code>
@@ -135,28 +166,26 @@ function App() {
                     </Typography>
                   </motion.div>
                   <div style={{ position: "relative", display: "flex" }}>
-                    <Typography>
-                      <AnimatePresence>
-                        <motion.span
-                          key={title}
-                          initial={{ x: -200, opacity: 0 }}
-                          animate={{ x: 0, opacity: 0.9 }}
-                          exit={{ x: 200, opacity: 0 }}
-                          style={{
-                            position: "absolute",
-                            display: "flex",
-                            alignItems: "flex-start",
-                            flexDirection: "column",
-                            fontSize: "10px",
-                          }}
-                        >
-                          <Typography variant="h2" style={{ color: color }}>
-                            {title}
-                          </Typography>
-                          <Typography variant="h3">{subtitle}</Typography>
-                        </motion.span>
-                      </AnimatePresence>
-                    </Typography>
+                    <AnimatePresence>
+                      <motion.span
+                        key={title}
+                        initial={{ x: -200, opacity: 0 }}
+                        animate={{ x: 0, opacity: 0.9 }}
+                        exit={{ x: 200, opacity: 0 }}
+                        style={{
+                          position: "absolute",
+                          display: "flex",
+                          alignItems: "flex-start",
+                          flexDirection: "column",
+                          fontSize: "10px",
+                        }}
+                      >
+                        <Typography variant="h2" style={{ color: color }}>
+                          {title}
+                        </Typography>
+                        <Typography variant="h3">{subtitle}</Typography>
+                      </motion.span>
+                    </AnimatePresence>
                   </div>
                 </div>
               ),
